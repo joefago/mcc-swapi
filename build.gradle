@@ -1,0 +1,27 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+}
+
+version = '1.0.0'
+
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    mavenCentral()
+}
+
+bootJar {
+    mainClassName = 'edu.mcc.swgen.Application'
+    archiveName = "${jar.baseName}-${version}.${jar.extension}"
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.spockframework:spock-core:1.2-groovy-2.4'
+    testCompile 'cglib:cglib:3.2+'
+    testCompile 'org.objenesis:objenesis:3.0+'
+}

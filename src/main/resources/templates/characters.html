@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Star Wars Characters</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        table th,td {
+            text-align: left;
+            padding-right: 16px;
+        }
+    </style>
+</head>
+<body>
+<h3> Star Wars Character Eye Colors</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Eye Color</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--/*@thymesVar id="characters" type="edu.mcc.swgen.SwApiCharacterList"*/-->
+    <tr th:each="character : ${characters.results}">
+        <td th:text="${character.name}"></td>
+        <td th:text="${character.eyeColor}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
